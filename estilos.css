@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #ddd;
+    font-size: 16px;
+    font-family: "Century Gothic",'Times New Roman', Times;
+}
+.contenedor{
+    width:90%;
+    max-width:1000px;
+    margin: auto;
+    margin-top:300px;
+}
+
+figure{
+    width: 100%;
+    position: relative;
+}
+
+figure .mapa{
+    width: 100%;
+    border-radius:10px; 
+    vertical-align: top;
+    box-shadow: 5px 5px 60px rgba(5,5,5,0.20);
+}
+figure .icono{
+    background: #fff;
+    top: 34%;
+    left:55.3%;
+    font-size: 40px;
+    position: absolute;
+}
+
+.tooltip{
+    display: flex;
+    background: #fff;
+    width:31.25em;
+    border-radius: 10px;
+    box-shadow: 5px 5px 60px rgba(0,0,0,0.20);
+    z-index: 1000;
+    position: absolute;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition: .3s ease all;
+    transform: translateY(10px);
+}
+
+.tooltip.activo{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.tooltip::after{
+    content: "";
+    display:inline-block;
+    border-top: 15px solid #fff;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    bottom: -15px;
+    position: absolute;
+    left: calc(50% - 15px);
+}
+
+.tooltip .thumb{
+    width:40%;
+}
+
+.tooltip .thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+    vertical-align: top;
+}
+
+.tooltip .info{
+    width:60%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tooltip .info .titulo{
+    color:#74d0ec;
+    font-size:20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.tooltip .info .direccion{
+    color: #707070;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.tooltip .info .resumen{
+    margin-bottom: 20px;
+}
+
+.tooltip .info .contenedor-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip .info button{
+    width:80%;
+    color:#fff;
+    background: #75ac35;
+    border: none;
+    padding: 10px 20px;
+    font-weight: normal;
+    font-family: "Century Gothic";
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.tooltip .info button:hover{
+    background: rgba(117, 172, 53, 0.9);
+}
+
+@media screen and (max-width: 768px){
+    figcaption{
+        font-size:12px;
+    }
+
+    .tooltip .info button{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .figure .mapa{
+        margin-bottom: 200px;
+    }
+
+    .figcaption .icono{
+        top: -32px;
+    }
+    .tooltip{
+        position: static;
+        opacity: 0;
+        width:50%;
+        transform: translate(0);
+    }
+
+    .tooltip::after{
+        content:"";
+        display:none;
+    }
+}
